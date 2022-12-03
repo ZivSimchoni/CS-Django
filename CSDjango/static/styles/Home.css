@@ -1,0 +1,109 @@
+
+#title{
+  color: white;
+  background-color: #1D1D20;
+}
+
+body {
+  font-family: "Montserrat";
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 1.5;
+  font-weight: bold;
+}
+.navcontainer-fluid{
+  padding:  3% 2%;
+  padding-bottom: 0%;
+}
+.container-fluid {
+  padding: 3% 10%;
+}
+
+.navbar {
+  padding: 0 0 3rem;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 240%;
+  font-weight: bold;
+  padding: 0 2%;
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+}
+
+
+
+#features {
+  padding: 2% 15%;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+p {
+  color: #8f8f8f;
+}
+
+.feat-box {
+  text-align: center;
+  padding: 5%;
+}
+
+.fa-4x {
+  padding-bottom: 5%;
+  color:  #1b1b1f;
+}
+
+.fa-4x:hover {
+  color: #696969;
+}
+
+/* testimonials */
+#testimonials{
+  padding: 7% 15%;
+  text-align: center;
+  background-color: #2c2b2b;
+  color: white;
+}
+h2{
+  font: "Montserrat-bold";
+  font-size: 3rem;
+  line-height: 1.5;
+}
+.testa-img{
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+#press{
+  background-color: #2c2c2d;
+  text-align: center;
+  padding-bottom: 3%;
+}
+
+.news{
+  width: 15%;
+  margin: 20px 20px 50px;
+}
+.carousel-item{
+  padding: 7% 15%;
+}
+
+#pricing{
+  padding: 100px;
+  text-align: center;
+}
+.pricecol{
+  padding: 3% 2%;
+}
