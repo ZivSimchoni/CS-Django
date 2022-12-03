@@ -1,0 +1,181 @@
+{%include 'NavBar.html'%}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Comunication_LTD</title>
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
+
+  <!-- font icon -->
+  <script src="https://kit.fontawesome.com/43124feaf5.js" crossorigin="anonymous"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'styles/Home.css' %}">
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+  <section id="title">
+    <div class="container-fluid">
+
+      <!-- Title -->
+      <div class="row">
+        <div class="col-lg-9">
+          <h1>	Comunication_LTD is the most reliable ISP, join our great all inclusive network packages!</h1>
+        </div>
+    </div>
+
+  </section>
+
+
+  <!-- Features -->
+
+  <section id="features">
+    <div class="row">
+      <div class="col-lg-4 feat-box">
+        <i class="fa-solid fa-check fa-4x"></i>
+        <h3>Fast and reliable!</h3>
+        <p>Supports up to 200,000 GB/s!</p>
+      </div>
+      <div class="col-lg-4 feat-box">
+        <i class="fa-solid fa-crown fa-4x"></i>
+        <h3>Elite Clientele</h3>
+        <p>We have all the companies, the greatest companies.</p>
+      </div>
+      <div class="col-lg-4 feat-box">
+        <i class="fa-solid fa-heart fa-4x"></i>
+        <h3>Guaranteed to work.</h3>
+        <p>Find the suitable package or your money back.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Testimonials -->
+
+  <section id="testimonials">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <h2>
+            Finalley i can watch my Dogflix. Woof.</h2>
+          <img class="testa-img" src="{% static 'img\dog-img.jpg' %}" alt="dog-profile">
+          <em>Pebbles, CEO</em>
+        </div>
+        <div class="carousel-item">
+          <h2 class="testimonial-text">The best connection iv'e got to my office.</h2>
+          <img class="testa-img" src="{% static 'img\lady-img.jpg' %}" alt="lady-profile">
+          
+          <em>Beverly, small busines owner</em>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+
+
+  </section>
+
+
+  <!-- Press -->
+
+  <section id="press">
+    <img class="news" src="{% static 'img/techcrunch.png' %}" alt="tc-logo">
+    <img class="news" src="{% static 'img/tnw.png' %}" alt="tnw-logo">
+    <img class="news" src="{% static 'img/bizinsider.png' %}" alt="biz-insider-logo">
+    <img class="news" src="{% static 'img/mashable.png' %}" alt="mashable-logo">
+
+  </section>
+
+
+  <!-- Pricing -->
+
+  <section id="pricing">
+
+
+    <h2>A Plan for Every Dog's Needs</h2>
+    <p>Simple and affordable price plans for your and your dog.</p>
+
+    <div class="row">
+      <div class="pricecol col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h5>Home</h5>
+          </div>
+          <div class="card-body">
+            <h2>10$ / mo</h2>
+            <p>500GB/s speed</p>
+            <p>Fiber connection</p>
+            <p>Unlimited Data Usage</p>
+            <div class="d-grid gap-2">
+              <a class="btn btn-block btn-dark btn-lg" href="/register" type="button">Sign Up!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pricecol col-lg-4 col-md-6">
+        <div class="card">
+
+
+          <div class="card-header">
+            <h5>Small Business</h5>
+          </div>
+          <div class="card-body">
+            <h2>$99 / mo</h2>
+            <p>24/7 Customer service at your busines</p>
+            <p>100,000GB/s speed</p>
+            <p>Fiber connection + modems</p>
+            <p>Unlimited Usage</p>
+
+            <div class="d-grid gap-2">
+              <a class="btn btn-lg btn-outline-dark" href="/register" type="button">Sign Up!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pricecol col-lg-4">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Meduim business</h5>
+          </div>
+          <div class="card-body">
+            <h2>$49 / mo</h2>
+            <p>24/7 Customer service at your busines</p>
+            <p>200,000 GB/s sped</p>
+            <p>Weekend in Las Veags</p>
+            <div class="d-grid gap-2">
+              <a class="btn btn-block btn-dark btn-lg" href="/register" type="button">Sign Up!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!-- Footer -->
+
+      <footer id="footer">
+
+        <p>© Aviv Ashtamker</p>
+
+      </footer>
+
+
+</body>
+
+</html>
