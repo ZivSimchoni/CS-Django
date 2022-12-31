@@ -1,4 +1,4 @@
-## Forked from [This Repo](https://github.com/ChristianLempa/cheat-sheets/blob/main/misc/ssl-certs.md) by Christian Lempa, [His Youtube Vid for this](https://www.youtube.com/watch?v=VH4gXcvkmOY), Passphrase from [Random Passphrase Generator](https://www.worksighted.com/random-passphrase-generator/#passphrase-generator), Another [localhost-SSL Guide](https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8)
+## Forked from [This Repo](https://github.com/ChristianLempa/cheat-sheets/blob/main/misc/ssl-certs.md) by Christian Lempa, [His Youtube Vid for this](https://www.youtube.com/watch?v=VH4gXcvkmOY), Passphrase from [Random Passphrase Generator](https://www.worksighted.com/random-passphrase-generator/#passphrase-generator), Another [localhost-SSL Guide](https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8), some Finishes with [this](https://programmerall.com/article/59882094931/)
 
 # Our Passphrase
 
