@@ -150,6 +150,17 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logoutUserPage' %}">logout</a>
             </li>
+              {%if request.user.is_authenticated%}
+                   <li class="nav-item">
+                      <a class="nav-link" href="">Change Password</a>
+                   </li>
+              {%endif%}
+              {% if user.is_superuser %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Admin Panel</a>
+               {% endif %}
+              </li>
+              
           </ul>
         </div>
       </nav>
