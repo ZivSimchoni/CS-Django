@@ -147,20 +147,19 @@
             <li class="nav-user">
                 <a class="nav-link" href="#">Hello, {{request.user}}</a>
             </li>
+            {%if request.user.is_authenticated%}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'change_password' %}">Change Password</a>
+              </li>
+            {%endif%}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logoutUserPage' %}">logout</a>
             </li>
-              {%if request.user.is_authenticated%}
-                   <li class="nav-item">
-                      <a class="nav-link" href="">Change Password</a>
-                   </li>
-              {%endif%}
-              {% if request.user.is_superuser %}
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin">Admin Panel</a>
-               {% endif %}
-              </li>
-              
+            {% if request.user.is_superuser %}
+              <li class="nav-item">
+                <a class="nav-link" href="/admin">Admin Panel</a>
+            {% endif %}
+              </li> 
           </ul>
         </div>
       </nav>

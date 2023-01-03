@@ -24,6 +24,7 @@ urlpatterns = [
     path('loginPage/homePage/logout', v.logoutUserPage, name="logoutUserPage"),
     path('registerPage/', v.registerPage, name="registerPage"),
     path('loginPage/homePage/', v.homePage, name="homePage"),
+    path('changePassword/', v.change_password, name='change_password'),
 
     #Reset password
     path('reset_password/', 

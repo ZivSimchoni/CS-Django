@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from .forms import RegisterForm, ChangePasswordForm
 from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -50,3 +50,17 @@ def logoutUserPage(request):
 def homePage(request):
     return render(request, "home/home.html")
 
+@login_required(login_url='loginPage')
+def change_password(request):
+    if request.method == 'POST':
+        form = ChangePasswordForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request,'Your password was successfully updated!\nPlease login with the new password')
+            return redirect('logoutUserPage')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = ChangePasswordForm(request.user)
+    return render(request, 'Change_password/change_password.html', {'form': form})
