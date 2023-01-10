@@ -37,12 +37,24 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'axes',
     'django_extensions',
     'werkzeug_debugger_runserver',
     'Comunication_LTD_Site.apps.Comunication_LTD_SiteConfig',
+    'django_password_validators',
+    'django_password_validators.password_history',
+
+]
+
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesBackend',
+    'django.contrib.auth.backends.ModelBackend',
+    #'Comunication_LTD_Site.authenticateFunc.SettingsBackend',
 ]
 
 MIDDLEWARE = [
+    'axes.middleware.AxesMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -93,15 +105,42 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 10,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'OPTIONS': {
+            'password_list_path': './commonPasswords.txt'
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'django_password_validators.password_character_requirements.password_validation.PasswordCharacterValidator',
+        'OPTIONS': {
+             'min_length_digit': 1,
+             'min_length_alpha': 2,
+             'min_length_special': 1,
+             'min_length_lower': 1,
+             'min_length_upper': 1,
+             'special_characters': "~!@#$%^&*()_+{}\":;'[]"
+         }
+    },
+    {
+        'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
+        'OPTIONS': {
+            'last_passwords': 3,
+        }
+    },
+
 ]
 
+AXES_COOLOFF_TIME = 0.5
+AXES_FAILURE_LIMIT = 3
+AXES_ONLY_USER_FAILURES = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

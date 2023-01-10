@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+#from .authenticateFunc import CustomAuthBackend 
 # Create your views here.
 
 def loginPage(request):
@@ -25,6 +26,22 @@ def loginPage(request):
 
         context = {}
         return render(request, "login/loginPage.html", context)  
+
+# def loginPage(request):
+#         if request.method == "POST":
+#             username = request.POST['username']
+#             password = request.POST['password']
+
+#             user = CustomAuthBackend.authenticate(request, username=username, password=password)
+
+#             if user is not None:
+#                 login(request, user)
+#                 return redirect('homePage')
+#             else:
+#                 messages.info(request, 'Username or Password is incorrect')  
+
+#         context = {}
+#         return render(request, "login/loginPage.html", context) 
 
 def registerPage(request):
     if request.user.is_authenticated:
