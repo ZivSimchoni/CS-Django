@@ -5,3 +5,5 @@ tzdata==2022.6
 django-extensions
 django-werkzeug-debugger-runserver
 pyOpenSSL
+django-axes
+django-password-validators
