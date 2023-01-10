@@ -32,7 +32,7 @@ urlpatterns = [
     name='password_reset'),
 
     path('reset_password/done', 
-    auth_views.PasswordChangeDoneView.as_view(template_name="Reset_Password/reset_password_done.html"),
+    auth_views.PasswordResetDoneView.as_view(template_name="Reset_Password/reset_password_done.html"),
     name='password_reset_done'),
 
     path('reset/<uidb64>/<token>/',
