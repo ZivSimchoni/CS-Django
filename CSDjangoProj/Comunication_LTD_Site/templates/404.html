@@ -1,0 +1,28 @@
+{%include 'NavBar.html'%}
+{% load static %}
+{%block content%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background-color: #303641;
+        }
+        .chars{
+            padding-top: 10%;
+            color: aliceblue;
+            text-align: center;
+        }
+    </style>
+    <title>Wrong Address!</title>
+  </head>
+  <body>
+    <div class="chars">
+    <h1>Ooops!</h1>
+
+    <h2>I cannot find the file you requested!</h2>
+</div>
+  </body>
+</html>
+{%endblock content%}
