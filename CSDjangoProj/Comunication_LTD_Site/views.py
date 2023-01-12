@@ -3,37 +3,28 @@ from .forms import RegisterForm, ChangePasswordForm
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth import login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-#from .authenticateFunc import CustomAuthBackend 
+from . badAuth import SettingsBackend
+from django.contrib.auth.models import User
+
+from . forms import loginForm 
+from . models import userLogin 
 # Create your views here.
 
-def loginPage(request):
-    if request.user.is_authenticated:
-        return redirect('homePage')
-    else:
-        if request.method == "POST":
-            username = request.POST['username']
-            password = request.POST['password']
+#################################   SECURED APP   ###################################
 
-            user = authenticate(request, username=username, password=password)
-
-            if user is not None:
-                login(request, user)
-                return redirect('homePage')
-            else:
-                messages.info(request, 'Username or Password is incorrect')  
-
-        context = {}
-        return render(request, "login/loginPage.html", context)  
-
+#from django.contrib.auth import authenticate
 # def loginPage(request):
+#     if request.user.is_authenticated:
+#         return redirect('homePage')
+#     else:
 #         if request.method == "POST":
 #             username = request.POST['username']
 #             password = request.POST['password']
 
-#             user = CustomAuthBackend.authenticate(request, username=username, password=password)
-
+#             user = authenticate(request, username=username, password=password)
+#             print(user)
 #             if user is not None:
 #                 login(request, user)
 #                 return redirect('homePage')
@@ -43,21 +34,22 @@ def loginPage(request):
 #         context = {}
 #         return render(request, "login/loginPage.html", context) 
 
-def registerPage(request):
-    if request.user.is_authenticated:
-        return redirect('homePage')
-    else:
-        form = RegisterForm()
-        if request.method == "POST":
-            form = RegisterForm(request.POST)
-            if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
-                messages.success(request, 'Account was created for ' + user)
 
-                return redirect("loginPage")
+# def registerPage(request):
+#     if request.user.is_authenticated:
+#         return redirect('homePage')
+#     else:
+#         form = RegisterForm()
+#         if request.method == "POST":
+#             form = RegisterForm(request.POST)
+#             if form.is_valid():
+#                 form.save()
+#                 user = form.cleaned_data.get('username')
+#                 messages.success(request, 'Account was created for ' + user)
 
-        return render(request, "register/register.html", {'form':form})
+#                 return redirect("loginPage")
+
+#         return render(request, "register/register.html", {'form':form})
 
 def logoutUserPage(request):
     logout(request)
@@ -81,3 +73,54 @@ def change_password(request):
     else:
         form = ChangePasswordForm(request.user)
     return render(request, 'Change_password/change_password.html', {'form': form})
+
+
+#################################   UNSECURED APP   ###################################
+
+def loginPage(request):
+    if request.user.is_authenticated:
+        return redirect('homePage')
+    else:
+        if request.method == "POST":
+            username = request.POST['username']
+            password = request.POST['password']
+
+            user = SettingsBackend.authenticate(request, username=username, password=password)
+            print(user)
+            if user is not None:
+                login(request, user)
+                return redirect('homePage')
+            else:
+                messages.info(request, 'Username or Password is incorrect')  
+
+        context = {}
+        return render(request, "login/loginPage.html", context) 
+
+from django.db import connection
+
+def registerPage(request):
+    if request.user.is_authenticated:
+        return redirect('homePage')
+    else:
+        form = RegisterForm()
+        if request.method == "POST":
+            form = RegisterForm(request.POST)
+            try:
+                user = form.save(commit=False)
+                if(user.username[0] == "'" or user.username[0] == '"' or user.username == 'username'):
+                    cursor=connection.cursor()
+                    cursor.execute(f"SELECT username FROM auth_user WHERE username LIKE {user.username}")
+                    r=cursor.fetchall()
+                    messages.error(request, r)
+            except:
+                pass           
+                 
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Account was created for ' + user)
+
+                return redirect("loginPage")
+
+        return render(request, "register/register.html", {'form':form})
+

@@ -25,12 +25,14 @@ SECRET_KEY = 'django-insecure-3ulhu$+f#1mmr&ylr3tyl+olord=_2b2*cl6fbhm$ynl(q!+*o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []#'127.0.0.1'
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_interface',
+    'colorfield',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    
     'axes',
     'django_extensions',
     'werkzeug_debugger_runserver',
@@ -48,9 +51,9 @@ INSTALLED_APPS = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    'axes.backends.AxesBackend',
-    'django.contrib.auth.backends.ModelBackend',
-    #'Comunication_LTD_Site.authenticateFunc.SettingsBackend',
+    #'axes.backends.AxesBackend',
+    #'django.contrib.auth.backends.ModelBackend',
+    'Comunication_LTD_Site.badAuth.SettingsBackend',
 ]
 
 MIDDLEWARE = [
@@ -158,6 +161,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS=[
+    BASE_DIR/'static',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

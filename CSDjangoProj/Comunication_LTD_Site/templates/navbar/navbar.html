@@ -46,8 +46,6 @@
         font-size: 1.2rem;
         }
 
-
-
         #features {
         padding: 2% 15%;
         }
@@ -145,8 +143,8 @@
         <div class="collapse navbar-collapse" id="navbar1">
           <ul class="navbar-nav ms-auto">
             <li class="nav-user">
-                <a class="nav-link" href="#">Hello, {{request.user}}</a>
-            </li>
+                <a class="nav-link" href="#">Hello, {{request.user.first_name | safe}}</a>
+            </li> 
             {%if request.user.is_authenticated%}
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'change_password' %}">Change Password</a>
