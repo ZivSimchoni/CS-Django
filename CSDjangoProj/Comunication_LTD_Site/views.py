@@ -8,8 +8,7 @@ from django.contrib.auth.decorators import login_required
 from . badAuth import SettingsBackend
 from django.contrib.auth.models import User
 
-from . forms import loginForm 
-from . models import userLogin 
+
 # Create your views here.
 
 #################################   SECURED APP   ###################################
